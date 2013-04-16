@@ -1,5 +1,6 @@
 package your-package;
 
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -40,6 +41,83 @@ public class Route {
 	 String lang;
 	 
 	 
+	 static String LANGUAGE_SPANISH = "es";
+	 static String LANGUAGE_ENGLISH = "en";
+	 static String LANGUAGE_FRENCH = "fr";
+	 static String LANGUAGE_GERMAN = "de";
+	 static String LANGUAGE_CHINESE_SIMPLIFIED = "zh-CN";
+	 static String LANGUAGE_CHINESE_TRADITIONAL = "zh-TW";
+	 
+	 
+	 public boolean drawRoute(GoogleMap map, Context c, ArrayList<LatLng> points, boolean withIndications, String language, boolean optimize)
+	 {
+		 mMap = map;
+		 context = c;
+		 lang = language;
+		 if(points.size() == 2)
+		 {
+			 String url = makeURL(points.get(0).latitude,points.get(0).longitude,points.get(1).latitude,points.get(1).longitude,"driving");
+			 new connectAsyncTask(url,withIndications).execute();
+			 return true;
+		 }
+		 else if(points.size() > 2)
+		 {
+			 String url = makeURL(points,"driving",optimize);
+			 new connectAsyncTask(url,withIndications).execute();
+			 return true;
+		 }
+		 
+		 return false;
+		 
+	 }
+	 
+	 public boolean drawRoute(GoogleMap map, Context c, ArrayList<LatLng> points, String language, boolean optimize)
+	 {
+		 mMap = map;
+		 context = c;
+		 lang = language;
+		 if(points.size() == 2)
+		 {
+			 String url = makeURL(points.get(0).latitude,points.get(0).longitude,points.get(1).latitude,points.get(1).longitude,"driving");
+			 new connectAsyncTask(url,false).execute();
+			 return true;
+		 }
+		 else if(points.size() > 2)
+		 {
+			 String url = makeURL(points,"driving",optimize);
+			 new connectAsyncTask(url,false).execute();
+			 return true;
+		 }
+		 
+		 return false;
+		 
+	 }
+	 
+	
+	 public boolean drawRoute(GoogleMap map, Context c, ArrayList<LatLng> points, String mode, boolean withIndications, String language, boolean optimize)
+	 {
+		 mMap = map;
+		 context = c;
+		 lang = language;
+		 if(points.size() == 2)
+		 {
+			 String url = makeURL(points.get(0).latitude,points.get(0).longitude,points.get(1).latitude,points.get(1).longitude,mode);
+			 new connectAsyncTask(url,withIndications).execute();
+			 return true;
+		 }
+		 else if(points.size() > 2)
+		 {
+			 String url = makeURL(points,mode,optimize);
+			 new connectAsyncTask(url,withIndications).execute();
+			 return true;
+		 }
+		 
+		 return false;
+		 
+	 }
+	 
+	 //
+	 
 	 
 	 public void drawRoute(GoogleMap map, Context c, LatLng source, LatLng dest, boolean withIndications, String language)
 	 {
@@ -47,7 +125,7 @@ public class Route {
 		 context = c;
 		 
 		 String url = makeURL(source.latitude,source.longitude,dest.latitude,dest.longitude,"driving");
-		 new connectAsyncTask(url,true).execute();
+		 new connectAsyncTask(url,withIndications).execute();
 		 lang = language;
 		 
 	 }
@@ -59,7 +137,7 @@ public class Route {
 		 context = c;
 		 
 		 String url = makeURL(source.latitude,source.longitude,dest.latitude,dest.longitude,"driving");
-		 new connectAsyncTask(url,true).execute();
+		 new connectAsyncTask(url,false).execute();
 		 lang = language;
 		 
 	 }
@@ -71,9 +149,47 @@ public class Route {
 		 context = c;
 		 
 		 String url = makeURL(source.latitude,source.longitude,dest.latitude,dest.longitude,mode);
-		 new connectAsyncTask(url,true).execute();
+		 new connectAsyncTask(url,withIndications).execute();
 		 lang = language;
 		 
+	 }
+	 
+	 private String makeURL (ArrayList<LatLng> points, String mode, boolean optimize){
+	        StringBuilder urlString = new StringBuilder();
+	        
+	        if(mode == null)
+	        	mode = "driving";
+	        
+	        urlString.append("http://maps.googleapis.com/maps/api/directions/json");
+	        urlString.append("?origin=");// from
+	   	    urlString.append( points.get(0).latitude);
+	   	    urlString.append(',');
+	   	    urlString.append(points.get(0).longitude);
+	   	    urlString.append("&destination=");
+	   	    urlString.append(points.get(points.size()-1).latitude);
+	   	    urlString.append(',');
+	   	    urlString.append(points.get(points.size()-1).longitude);
+	   	    
+	   	    urlString.append("&waypoints=");
+	   	    if(optimize)
+	   	     urlString.append("optimize:true|");
+	   	    urlString.append( points.get(1).latitude);
+		   	urlString.append(',');
+		   	urlString.append(points.get(1).longitude);
+		   	    
+   	    	for(int i=2;i<points.size()-1;i++)
+   	    	{
+   	    		urlString.append('|');
+   	    		urlString.append( points.get(i).latitude);
+		   	    urlString.append(',');
+		   	    urlString.append(points.get(i).longitude);
+   	    	}
+	   	    
+	   	    
+	   	    urlString.append("&sensor=true&mode="+mode);
+	   	    
+	   	    
+	   	    return urlString.toString();
 	 }
 	
 	 private String makeURL (double sourcelat, double sourcelog, double destlat, double destlog,String mode){
@@ -187,7 +303,7 @@ public class Route {
 		                LatLng dest= list.get(z+1);
 		                Polyline line = mMap.addPolyline(new PolylineOptions()
 		                .add(new LatLng(src.latitude, src.longitude), new LatLng(dest.latitude,   dest.longitude))
-		                .width(2)
+		                .width(4)
 		                .color(Color.BLUE).geodesic(true));
 		            }
 		           
