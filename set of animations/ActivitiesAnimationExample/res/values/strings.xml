@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">ActivitiesAnimation</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string-array name="array_go_out">
+        <item>not_move_out</item>
+        <item>push_bot_out</item>
+        <item>push_bot_out_with_fade</item>
+        <item>push_left_out</item>
+        <item>push_left_out_with_fade</item>
+        <item>push_right_out</item>
+        <item>push_right_out_with_fade</item>
+        <item>push_top_out</item>
+        <item>push_top_out_with_fade</item>
+        <item>rotate_out</item>
+    </string-array>
+    <string-array name="array_go_in">
+        <item>push_bot_in</item>
+        <item>bot_in_with_fade</item>
+        <item>push_left_in</item>
+        <item>push_left_in_with_fade</item>
+        <item>push_right_in</item>
+        <item>push_right_in_with_fade</item>
+        <item>push_top_in</item>
+        <item>push_top_in_with_fade</item>
+        <item>rotate_in</item>
+        <item>push_bot_in_with_fade</item>
+    </string-array>
+</resources>
