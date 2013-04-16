@@ -1,0 +1,157 @@
+\hypertarget{class_communication_lib}{\section{Communication\-Lib Class Reference}
+\label{class_communication_lib}\index{Communication\-Lib@{Communication\-Lib}}
+}
+
+
+\hyperlink{class_communication_lib}{Communication\-Lib} class.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_communication_lib_a88995ee179197790ce3f14d694ecd2a2}{Communication\-Lib} ()
+\begin{DoxyCompactList}\small\item\em Empty constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_communication_lib_ab0d8f834a72f744e96bbc8c0f2acb158}{Communication\-Lib} (int s\-Port, int c\-Port)
+\begin{DoxyCompactList}\small\item\em Constructor with arguments. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_lib_a0e67a5f5465c6a04c7bda7bec79bc6a6}{set\-Timout} (int m\-Sec)
+\begin{DoxyCompactList}\small\item\em Change the time\-Out for the server. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_lib_a5c5fffa4340549546e9929274da1c513}{start} ()
+\begin{DoxyCompactList}\small\item\em throw a thread and start listening for new datagrams. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_lib_a322c14edef317eec3dcf24b5c91dcec1}{stop} ()
+\begin{DoxyCompactList}\small\item\em stop the listening and clos the connection. \end{DoxyCompactList}\item 
+string \hyperlink{class_communication_lib_a19cff7840f216399f333a5caf24923f7}{read\-Message} ()
+\begin{DoxyCompactList}\small\item\em This function return the message received. \end{DoxyCompactList}\item 
+void \hyperlink{class_communication_lib_afd007743f316982a54593d49b88f5bcc}{test\-Client} (String s)
+\begin{DoxyCompactList}\small\item\em This function test the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_communication_lib}{Communication\-Lib} class. 
+
+This class allows to comunicate Unity with an external call thorught datagrams packet U\-D\-P. The message to send must to be of the string type and the Ip is ever localhost (\char`\"{}127.\-0.\-0.\-1\char`\"{}). 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_communication_lib_a88995ee179197790ce3f14d694ecd2a2}{\index{Communication\-Lib@{Communication\-Lib}!Communication\-Lib@{Communication\-Lib}}
+\index{Communication\-Lib@{Communication\-Lib}!CommunicationLib@{Communication\-Lib}}
+\subsubsection[{Communication\-Lib}]{\setlength{\rightskip}{0pt plus 5cm}Communication\-Lib.\-Communication\-Lib (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_communication_lib_a88995ee179197790ce3f14d694ecd2a2}
+
+
+Empty constructor. 
+
+When is called, set the default ports for the communication 4444 for server and 4448 for client. \hypertarget{class_communication_lib_ab0d8f834a72f744e96bbc8c0f2acb158}{\index{Communication\-Lib@{Communication\-Lib}!Communication\-Lib@{Communication\-Lib}}
+\index{Communication\-Lib@{Communication\-Lib}!CommunicationLib@{Communication\-Lib}}
+\subsubsection[{Communication\-Lib}]{\setlength{\rightskip}{0pt plus 5cm}Communication\-Lib.\-Communication\-Lib (
+\begin{DoxyParamCaption}
+\item[{int}]{s\-Port, }
+\item[{int}]{c\-Port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_communication_lib_ab0d8f834a72f744e96bbc8c0f2acb158}
+
+
+Constructor with arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\-Port} & an integer for set the server port. \\
+\hline
+{\em c\-Port} & an integer for set the client port. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{class_communication_lib_a88995ee179197790ce3f14d694ecd2a2}{Communication\-Lib()} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_communication_lib_a19cff7840f216399f333a5caf24923f7}{\index{Communication\-Lib@{Communication\-Lib}!read\-Message@{read\-Message}}
+\index{read\-Message@{read\-Message}!CommunicationLib@{Communication\-Lib}}
+\subsubsection[{read\-Message}]{\setlength{\rightskip}{0pt plus 5cm}string Communication\-Lib.\-read\-Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_communication_lib_a19cff7840f216399f333a5caf24923f7}
+
+
+This function return the message received. 
+
+\begin{DoxyReturn}{Returns}
+returns the message in a string form. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{class_communication_lib_a88995ee179197790ce3f14d694ecd2a2}{Communication\-Lib()} and \hyperlink{class_communication_lib_a5c5fffa4340549546e9929274da1c513}{start()} 
+\end{DoxySeeAlso}
+\hypertarget{class_communication_lib_a0e67a5f5465c6a04c7bda7bec79bc6a6}{\index{Communication\-Lib@{Communication\-Lib}!set\-Timout@{set\-Timout}}
+\index{set\-Timout@{set\-Timout}!CommunicationLib@{Communication\-Lib}}
+\subsubsection[{set\-Timout}]{\setlength{\rightskip}{0pt plus 5cm}void Communication\-Lib.\-set\-Timout (
+\begin{DoxyParamCaption}
+\item[{int}]{m\-Sec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_communication_lib_a0e67a5f5465c6a04c7bda7bec79bc6a6}
+
+
+Change the time\-Out for the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\-Sec} & the time in miliseconds for the timeout. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{class_communication_lib_a88995ee179197790ce3f14d694ecd2a2}{Communication\-Lib()} 
+\end{DoxySeeAlso}
+\hypertarget{class_communication_lib_a5c5fffa4340549546e9929274da1c513}{\index{Communication\-Lib@{Communication\-Lib}!start@{start}}
+\index{start@{start}!CommunicationLib@{Communication\-Lib}}
+\subsubsection[{start}]{\setlength{\rightskip}{0pt plus 5cm}void Communication\-Lib.\-start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_communication_lib_a5c5fffa4340549546e9929274da1c513}
+
+
+throw a thread and start listening for new datagrams. 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{class_communication_lib_a88995ee179197790ce3f14d694ecd2a2}{Communication\-Lib()} 
+\end{DoxySeeAlso}
+\hypertarget{class_communication_lib_a322c14edef317eec3dcf24b5c91dcec1}{\index{Communication\-Lib@{Communication\-Lib}!stop@{stop}}
+\index{stop@{stop}!CommunicationLib@{Communication\-Lib}}
+\subsubsection[{stop}]{\setlength{\rightskip}{0pt plus 5cm}void Communication\-Lib.\-stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_communication_lib_a322c14edef317eec3dcf24b5c91dcec1}
+
+
+stop the listening and clos the connection. 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{class_communication_lib_a88995ee179197790ce3f14d694ecd2a2}{Communication\-Lib()} and \hyperlink{class_communication_lib_a5c5fffa4340549546e9929274da1c513}{start()} 
+\end{DoxySeeAlso}
+\hypertarget{class_communication_lib_afd007743f316982a54593d49b88f5bcc}{\index{Communication\-Lib@{Communication\-Lib}!test\-Client@{test\-Client}}
+\index{test\-Client@{test\-Client}!CommunicationLib@{Communication\-Lib}}
+\subsubsection[{test\-Client}]{\setlength{\rightskip}{0pt plus 5cm}void Communication\-Lib.\-test\-Client (
+\begin{DoxyParamCaption}
+\item[{String}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_communication_lib_afd007743f316982a54593d49b88f5bcc}
+
+
+This function test the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & is the string send to the server. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{class_communication_lib_a88995ee179197790ce3f14d694ecd2a2}{Communication\-Lib()}, \hyperlink{class_communication_lib_a5c5fffa4340549546e9929274da1c513}{start()} and \hyperlink{class_communication_lib_a19cff7840f216399f333a5caf24923f7}{read\-Message()} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+Comunication\-Lib.\-cs\end{DoxyCompactItemize}
