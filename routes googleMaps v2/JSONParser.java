@@ -1,4 +1,4 @@
-package com.signlab.rutas;
+package your-package;
 
 /**
  * @author zeeshan0026
