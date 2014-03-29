@@ -1,8 +1,8 @@
 Set of Animations
 ===========================
 
-I put here some usefull animations.
-For use it you can cpy in your res folder and in your activity class call the overridePendingTransition(int id, int id);
+I put here some usefull animations between activities.
+For use it you can copy at your res folder and in the activity class use overridePendingTransition(int id, int id);
 
 
 You should use it after a finish() or startActivity(Intent)
