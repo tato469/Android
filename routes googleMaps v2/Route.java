@@ -48,6 +48,11 @@ public class Route {
 	 static String LANGUAGE_CHINESE_SIMPLIFIED = "zh-CN";
 	 static String LANGUAGE_CHINESE_TRADITIONAL = "zh-TW";
 	 
+	 static String TRANSPORT_DRIVING = "driving";
+	 static String TRANSPORT_WALKING = "walking";
+	 static String TRANSPORT_BIKE = "bicycling";
+	 static String TRANSPORT_TRANSIT = "transit";
+	 
 	 
 	 public boolean drawRoute(GoogleMap map, Context c, ArrayList<LatLng> points, boolean withIndications, String language, boolean optimize)
 	 {
