@@ -8,10 +8,12 @@ For use it you can copy at your res folder and in the activity class use overrid
 You should use it after a finish() or startActivity(Intent)
 
 example:
+
 	startActivity(intent);
 	overridePendingTransition(R.anim.push_left_in,  R.anim.not_move_out);
 
 or:
+
 	finish();
 	overridePendingTransition(R.anim.push_left_in,  R.anim.not_move_out);
 
