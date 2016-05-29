@@ -1,7 +1,7 @@
 Set of Animations
 ===========================
 
-I put here some usefull animations between activities.
+I put here some useful animations between activities.
 For use it you can copy at your res folder and in the activity class use overridePendingTransition(int id, int id);
 
 
